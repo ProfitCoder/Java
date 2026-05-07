@@ -20,7 +20,7 @@ public class EjHashSet{
 		}
 		
 		//Mostrar colección for-each		
-		System.out.println("\nNúmeros del 1 al 100: \n");
+		System.out.println("\nResultados: \n");
 		
 		for(Integer i : pares){
 			System.out.println(i);
