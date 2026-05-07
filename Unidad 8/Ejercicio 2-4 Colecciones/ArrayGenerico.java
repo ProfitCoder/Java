@@ -4,12 +4,19 @@ import java.util.Arrays;
 
 public class ArrayGenerico<T>{
 	//Atributos
-	private T []array1;
-	private int tam;
+	private T[] array1;
 	
 	//Constructor
+	
+	/*
+		Nos va a dar un aviso si en el constructor hacemos asi el constructor,
+		Para que no haya Warnings sobre lo que estoy haciendo.
+	*/
+	
+	
+	@SuppressWarnings("unchecked")
 	public ArrayGenerico(int tam){
-		this.tam = tam;
+//		array1 = new T [tam];						Da error, por lo que hay que hacer el ejemplo de abajo, que se hace un Casting y se llama a Object (Padre)
 		array1 = (T[]) new Object[tam];
 	}
 	
@@ -38,14 +45,18 @@ public class ArrayGenerico<T>{
 	}
 	
 	public void anadirElemento(T valor) throws Exception {
-		for (int i = 0; i < array1.length; i++) {
+		boolean estaInsertado = false;
+		
+		for (int i = 0; i < array1.length && estaInsertado != true; i++) {
 			if (array1[i] == null) {
 				array1[i] = valor;
-				return;
+				estaInsertado = true;
 			}
 		}
-
-		throw new Exception("El array está lleno");
+		
+		if(estaInsertado == false){
+			throw new Exception("El array está lleno");
+		}
 	}
 	
 	@Override
@@ -67,10 +78,10 @@ public class ArrayGenerico<T>{
 			System.out.println(array1);
 			
 			//Busca el valor 20 (Debe de indicar que no está).
-			System.out.println(array1.buscarValor(20));
+			System.out.println("Posición del valor 20: " + array1.buscarValor(20));
 			
 			//Busca el valor 30 (Debe indicar que está en la posición 1).
-			System.out.println(array1.buscarValor(30));
+			System.out.println("Posición del valor 30: " + array1.buscarValor(30));
 			
 			//Añade el valor 100 en el primer hueco libre.
 			array1.anadirElemento(100);
@@ -79,7 +90,7 @@ public class ArrayGenerico<T>{
 			
 			System.out.println("**** Valores ****");
 			
-			for (int i = 0; i < array1.tam; i++) {
+			for (int i = 0; i < 10; i++) {
 				System.out.println(array1.consultarValor(i));
 			}
 		}catch (Exception e){
