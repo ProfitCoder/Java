@@ -25,3 +25,12 @@ public class ControlAsistencia{
 		}
  	}
 }
+
+/*
+Al ser un HashSet de un objeto que existe ya (String, Integer, Character...)
+es decir, no es un objeto creado por nosotros.
+Este tipo de datos ya tienen por defecto tanto el HashCode,
+como el metodo equals, que habria que sobreescribir si no lo tuvieran
+ya de por sí. Eh ahí el porque de que en este ejercicio no se haga
+ese @Override a estos metodos.
+*/
