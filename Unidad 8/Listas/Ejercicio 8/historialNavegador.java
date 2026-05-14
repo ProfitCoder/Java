@@ -7,14 +7,14 @@ public class historialNavegador{
 		//Creation of colection that acts like a stack
 		LinkedList <String> historial = new LinkedList<>();
 		
-		//Add pages by order
+		//Add pages by order of search
 		historial.addFirst("https://www.google.com");
 		historial.addFirst("wikipedia.org/Java");
 		historial.addFirst("stackoverflow.com");
 		historial.addFirst("github.com");
 		//we made it like that to made it like a stack style
 		
-		//Ahora consultamos la página actual sin borrarla
+		//Now we wanna know what the actual page is without loosing it
 		System.out.println();
 		System.out.println("Página actual: " + historial.peekFirst());
 		
